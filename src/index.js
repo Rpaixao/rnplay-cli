@@ -87,7 +87,7 @@ const createGitRepo = () => {
       cli.info('Adding git remote');
 
       const remoteName = 'rnplay';
-      const url = `https://${config.token}:@git.rnplay.org:jsierles/${urlToken}.git`;
+      const url = `https://${config.token}:@git.rnplay.org/${urlToken}.git`;
       const cmd = `git remote add ${remoteName} ${url}`;
 
       return execAsync(cmd)
