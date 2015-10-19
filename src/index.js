@@ -95,8 +95,12 @@ const createGitRepo = () => {
     })
     .spread((remoteName, url) => {
       cli.ok(`Added remote with name \`${remoteName}\` and url: \`${url}\``);
-      cli.ok('All done! Use `git push rnplay master` to push your application.');
-      cli.ok('You can use `rnplay --open` to open this application on rnplay.org');
+      cli.ok("Pushing your repo for the first time: git push rnplay master");
+      execAsync("git push rnplay master")
+        .then(() => {
+          cli.ok('All done! After comitting, Use `git push rnplay master` to push your changes to rnplay.');
+          cli.ok('Use `rnplay --open` to open this application on rnplay.org');
+        });
     });
 };
 
